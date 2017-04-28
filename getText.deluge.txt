@@ -1,0 +1,92 @@
+string getText(int inp)
+{
+    toNumber = input.inp.toString();
+    nnumbers = toNumber.replaceAll("(?)",",",false).removeFirstOccurence(",").removeLastOccurence(",").toList();
+    iter = List:Int();
+    //Begin LOOP Prep
+    if (toNumber.length()  ==  0)
+    {
+    }
+    if (toNumber.length()  ==  1)
+    {
+        iter = {0};
+    }
+    if (toNumber.length()  ==  2)
+    {
+        iter = {0, 1};
+    }
+    if (toNumber.length()  ==  3)
+    {
+        iter = {0, 1, 2};
+    }
+    if (toNumber.length()  ==  4)
+    {
+        iter = {0, 1, 2, 3};
+    }
+    if (toNumber.length()  ==  5)
+    {
+        iter = {0, 1, 2, 3, 4};
+    }
+    if (toNumber.length()  ==  6)
+    {
+        iter = {0, 1, 2, 3, 4, 5};
+    }
+    if (toNumber.length()  ==  7)
+    {
+        iter = {0, 1, 2, 3, 4, 5, 6};
+    }
+    if (toNumber.length()  ==  8)
+    {
+        iter = {0, 1, 2, 3, 4, 5, 6, 7};
+    }
+    if (toNumber.length()  ==  9)
+    {
+        iter = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+    }
+    if (toNumber.length()  ==  10)
+    {
+        iter = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    }
+    //END of Loop Prep
+    //Reverse List
+    numbers = List();
+    for each i in iter
+    {
+        numbers.add(nnumbers.get((iter.size()  -  1  -  i)));
+    }
+    //End of Reverse List [numbers]
+    numberText = "/หนึ่ง/สอง/สาม/สี่/ห้า/หก/เจ็ด/แปด/เก้า/สิบ".toList("/");
+    unitText = "/สิบ/ร้อย/พัน/หมื่น/แสน/ล้าน".toList("/");
+    output = "";
+    //Start Script
+    for each i in iter
+    {
+        number = (numbers.get(i)).toDecimal();
+        text = numberText.get(number.toLong());
+        unit = unitText.get(i);
+        if (((i  ==  0)  &&  (number  ==  1))  &&  (toNumber.length()  >=  2))
+        {
+            output = "เอ็ด" + output;
+        }
+        else if ((i  ==  1)  &&  (number  ==  2))
+        {
+            output = "ยี่สิบ" + output;
+        }
+        else if ((i  ==  1)  &&  (number  ==  1))
+        {
+            output = "สิบ" + output;
+        }
+        else
+        {
+            output = text + unit + output;
+        }
+    }
+    /*
+	 nnn = "";
+	 for each i in iter
+	 {
+		 nnn = nnn + "/" + revlist.get(i);
+	 }
+	 */
+    return output;
+}
